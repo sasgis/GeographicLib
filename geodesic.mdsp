@@ -8,10 +8,10 @@ defaultConfig=1
 // compiler 
 workingDirectory=
 arguments=
-intermediateFilesDirectory=Debug
-outputFilesDirectory=Debug
+intermediateFilesDirectory=bin\Debug
+outputFilesDirectory=bin\Debug
 compilerPreprocessor=
-extraCompilerOptions=
+extraCompilerOptions=-std=c99
 compilerIncludeDirectory=
 noWarning=0
 defaultWarning=0
@@ -27,9 +27,9 @@ optimizeLevel=0
 
 // linker
 libraryPath=
-outputFilename=Debug\geodesic.dll
+outputFilename=bin\Debug\geodesic.dll
 libraries=
-extraLinkerOptions=
+extraLinkerOptions=-static-libgcc
 ignoreStartupFile=0
 ignoreDefaultLibs=0
 stripExecutableFile=0
@@ -46,10 +46,10 @@ extraResourceOptions=
 // compiler 
 workingDirectory=
 arguments=
-intermediateFilesDirectory=Release
-outputFilesDirectory=Release
+intermediateFilesDirectory=bin\Release
+outputFilesDirectory=bin\Release
 compilerPreprocessor=
-extraCompilerOptions=
+extraCompilerOptions=-std=c99
 compilerIncludeDirectory=
 noWarning=0
 defaultWarning=0
@@ -65,9 +65,9 @@ optimizeLevel=2
 
 // linker
 libraryPath=
-outputFilename=Release\geodesic.dll
+outputFilename=bin\Release\geodesic.dll
 libraries=
-extraLinkerOptions=
+extraLinkerOptions=-static-libgcc
 ignoreStartupFile=0
 ignoreDefaultLibs=0
 stripExecutableFile=1
@@ -85,6 +85,8 @@ extraResourceOptions=
 [Header]
 1=geodesic.h
 [Resource]
+1=geodesic.rc
 [Other]
 [History]
-geodesic.c,2539
+geodesic.rc,0
+geodesic.c,86
