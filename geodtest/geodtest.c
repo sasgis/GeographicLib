@@ -336,7 +336,7 @@ int GeodSolve12() {
 
 int GeodSolve14() {
   /* Check fix for inverse ignoring lon12 = nan */
-  double azi1, azi2, s12, nan = sqrt(-1.0);
+  double azi1, azi2, s12, nan = NAN; // sqrt(-1.0);
   struct geod_geodesic g;
   int result = 0;
   geod_init(&g, wgs84_a, wgs84_f);
@@ -473,7 +473,7 @@ int GeodSolve33() {
 int GeodSolve55() {
   /* Check fix for nan + point on equator or pole not returning all nans in
    * Geodesic::Inverse, found 2015-09-23. */
-  double azi1, azi2, s12, nan = sqrt(-1.0);
+  double azi1, azi2, s12, nan = NAN; // sqrt(-1.0);
   struct geod_geodesic g;
   int result = 0;
   geod_init(&g, wgs84_a, wgs84_f);

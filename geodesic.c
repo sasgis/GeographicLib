@@ -85,7 +85,7 @@ static void Init() {
     tolb = tol0 * tol2;
     xthresh = 1000 * tol2;
     degree = pi/180;
-    NaN = sqrt(-1.0);
+    NaN = NAN; // sqrt(-1.0);
     init = 1;
   }
 }
