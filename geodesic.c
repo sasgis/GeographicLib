@@ -120,7 +120,11 @@ static real atanhx(real x) {
 }
 
 static real copysignx(real x, real y) {
+#if __STDC_VERSION__ >= 199901L
+  return copysign(x, y);
+#else
   return fabs(x) * (y < 0 || (y == 0 && 1/y < 0) ? -1 : 1);
+#endif
 }
 
 static real hypotx(real x, real y)
