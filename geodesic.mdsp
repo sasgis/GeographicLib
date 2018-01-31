@@ -48,7 +48,7 @@ workingDirectory=
 arguments=
 intermediateFilesDirectory=bin\Release
 outputFilesDirectory=bin\Release
-compilerPreprocessor=
+compilerPreprocessor=HAVE_C99_MATH
 extraCompilerOptions=-std=c99
 compilerIncludeDirectory=
 noWarning=0

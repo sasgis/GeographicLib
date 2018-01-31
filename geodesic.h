@@ -4,12 +4,12 @@
  *
  * This an implementation in C of the geodesic algorithms described in
  * - C. F. F. Karney,
- *   <a href="https://dx.doi.org/10.1007/s00190-012-0578-z">
+ *   <a href="https://doi.org/10.1007/s00190-012-0578-z">
  *   Algorithms for geodesics</a>,
  *   J. Geodesy <b>87</b>, 43--55 (2013);
- *   DOI: <a href="https://dx.doi.org/10.1007/s00190-012-0578-z">
+ *   DOI: <a href="https://doi.org/10.1007/s00190-012-0578-z">
  *   10.1007/s00190-012-0578-z</a>;
- *   addenda: <a href="http://geographiclib.sourceforge.net/geod-addenda.html">
+ *   addenda: <a href="https://geographiclib.sourceforge.io/geod-addenda.html">
  *   geod-addenda.html</a>.
  * .
  * The principal advantages of these algorithms over previous ones (e.g.,
@@ -96,7 +96,7 @@
  *   [\e d, \e d], for arbitrary \e d.
  *
  * These routines are a simple transcription of the corresponding C++ classes
- * in <a href="http://geographiclib.sourceforge.net"> GeographicLib</a>.  The
+ * in <a href="https://geographiclib.sourceforge.io"> GeographicLib</a>.  The
  * "class data" is represented by the structs geod_geodesic, geod_geodesicline,
  * geod_polygon and pointers to these objects are passed as initial arguments
  * to the member functions.  Most of the internal comments have been retained.
@@ -107,12 +107,12 @@
  * twice about restructuring the internals of the C code since this may make
  * porting fixes from the C++ code more difficult.
  *
- * Copyright (c) Charles Karney (2012-2016) <charles@karney.com> and licensed
+ * Copyright (c) Charles Karney (2012-2017) <charles@karney.com> and licensed
  * under the MIT/X11 License.  For more information, see
- * http://geographiclib.sourceforge.net/
+ * https://geographiclib.sourceforge.io/
  *
  * This library was distributed with
- * <a href="../index.html">GeographicLib</a> 1.46.
+ * <a href="../index.html">GeographicLib</a> 1.50.
  **********************************************************************/
 
 #if !defined(GEODESIC_H)
@@ -127,12 +127,12 @@
  * The minor version of the geodesic library.  (This tracks the version of
  * GeographicLib.)
  **********************************************************************/
-#define GEODESIC_VERSION_MINOR 46
+#define GEODESIC_VERSION_MINOR 50
 /**
  * The patch level of the geodesic library.  (This tracks the version of
  * GeographicLib.)
  **********************************************************************/
-#define GEODESIC_VERSION_PATCH 1
+#define GEODESIC_VERSION_PATCH 0
 
 /**
  * Pack the version components into a single integer.  Users should not rely on
@@ -242,7 +242,7 @@ extern "C" {
    *
    * \e g must have been initialized with a call to geod_init().  \e lat1
    * should be in the range [&minus;90&deg;, 90&deg;].  The values of \e lon2
-   * and \e azi2 returned are in the range [&minus;180&deg;, 180&deg;).  Any of
+   * and \e azi2 returned are in the range [&minus;180&deg;, 180&deg;].  Any of
    * the "return" arguments \e plat2, etc., may be replaced by 0, if you do not
    * need some quantities computed.
    *
@@ -327,7 +327,7 @@ extern "C" {
    *
    * \e g must have been initialized with a call to geod_init().  \e lat1 and
    * \e lat2 should be in the range [&minus;90&deg;, 90&deg;].  The values of
-   * \e azi1 and \e azi2 returned are in the range [&minus;180&deg;, 180&deg;).
+   * \e azi1 and \e azi2 returned are in the range [&minus;180&deg;, 180&deg;].
    * Any of the "return" arguments, \e ps12, etc., may be replaced by 0, if you
    * do not need some quantities computed.
    *
@@ -448,7 +448,7 @@ extern "C" {
    *
    * This function sets point 3 of the geod_geodesicline to correspond to point
    * 2 of the direct geodesic problem.  See geod_lineinit() for more
-   * informaion.
+   * information.
    **********************************************************************/
   void geod_directline(struct geod_geodesicline* l,
                        const struct geod_geodesic* g,
@@ -478,7 +478,7 @@ extern "C" {
    *
    * This function sets point 3 of the geod_geodesicline to correspond to point
    * 2 of the direct geodesic problem.  See geod_lineinit() for more
-   * informaion.
+   * information.
    **********************************************************************/
   void geod_gendirectline(struct geod_geodesicline* l,
                           const struct geod_geodesic* g,
@@ -504,7 +504,7 @@ extern "C" {
    *
    * This function sets point 3 of the geod_geodesicline to correspond to point
    * 2 of the inverse geodesic problem.  See geod_lineinit() for more
-   * informaion.
+   * information.
    **********************************************************************/
   void geod_inverseline(struct geod_geodesicline* l,
                        const struct geod_geodesic* g,
@@ -525,7 +525,7 @@ extern "C" {
    *
    * \e l must have been initialized with a call, e.g., to geod_lineinit(),
    * with \e caps |= GEOD_DISTANCE_IN.  The values of \e lon2 and \e azi2
-   * returned are in the range [&minus;180&deg;, 180&deg;).  Any of the
+   * returned are in the range [&minus;180&deg;, 180&deg;].  Any of the
    * "return" arguments \e plat2, etc., may be replaced by 0, if you do not
    * need some quantities computed.
    *
@@ -594,7 +594,7 @@ extern "C" {
    *
    * \e l must have been initialized with a call to geod_lineinit() with \e
    * caps |= GEOD_DISTANCE_IN.  The value \e azi2 returned is in the range
-   * [&minus;180&deg;, 180&deg;).  Any of the "return" arguments \e plat2,
+   * [&minus;180&deg;, 180&deg;].  Any of the "return" arguments \e plat2,
    * etc., may be replaced by 0, if you do not need some quantities
    * computed.  Requesting a value which \e l is not capable of computing
    * is not an error; the corresponding argument will not be altered.
@@ -881,16 +881,16 @@ extern "C" {
    * mask values for the \e caps argument to geod_lineinit().
    **********************************************************************/
   enum geod_mask {
-    GEOD_NONE         = 0U,                     /**< Calculate nothing */
-    GEOD_LATITUDE     = 1U<<7  | 0U,            /**< Calculate latitude */
-    GEOD_LONGITUDE    = 1U<<8  | 1U<<3,         /**< Calculate longitude */
-    GEOD_AZIMUTH      = 1U<<9  | 0U,            /**< Calculate azimuth */
-    GEOD_DISTANCE     = 1U<<10 | 1U<<0,         /**< Calculate distance */
-    GEOD_DISTANCE_IN  = 1U<<11 | 1U<<0 | 1U<<1, /**< Allow distance as input  */
-    GEOD_REDUCEDLENGTH= 1U<<12 | 1U<<0 | 1U<<2, /**< Calculate reduced length */
-    GEOD_GEODESICSCALE= 1U<<13 | 1U<<0 | 1U<<2, /**< Calculate geodesic scale */
-    GEOD_AREA         = 1U<<14 | 1U<<4,         /**< Calculate reduced length */
-    GEOD_ALL          = 0x7F80U| 0x1FU          /**< Calculate everything */
+    GEOD_NONE         = 0U,                    /**< Calculate nothing */
+    GEOD_LATITUDE     = 1U<<7  | 0U,           /**< Calculate latitude */
+    GEOD_LONGITUDE    = 1U<<8  | 1U<<3,        /**< Calculate longitude */
+    GEOD_AZIMUTH      = 1U<<9  | 0U,           /**< Calculate azimuth */
+    GEOD_DISTANCE     = 1U<<10 | 1U<<0,        /**< Calculate distance */
+    GEOD_DISTANCE_IN  = 1U<<11 | 1U<<0 | 1U<<1,/**< Allow distance as input  */
+    GEOD_REDUCEDLENGTH= 1U<<12 | 1U<<0 | 1U<<2,/**< Calculate reduced length */
+    GEOD_GEODESICSCALE= 1U<<13 | 1U<<0 | 1U<<2,/**< Calculate geodesic scale */
+    GEOD_AREA         = 1U<<14 | 1U<<4,        /**< Calculate reduced length */
+    GEOD_ALL          = 0x7F80U| 0x1FU         /**< Calculate everything */
   };
 
   /**

@@ -33,8 +33,8 @@ ifeq ($(CFG),Release)
   OUTPUT_DIR = bin\Release
   TARGET = geodesic.dll
   C_INCLUDE_DIRS = 
-  C_PREPROC = 
-  CFLAGS = -pipe -std=c99 -Wall -g0 -O2 
+  C_PREPROC = -DHAVE_C99_MATH 
+  CFLAGS = -fPIE -pipe -std=c99 -g0 -O2 -Wall -Wextra -Wfloat-conversion -Wno-array-bounds -pedantic
   RC_INCLUDE_DIRS = 
   RC_PREPROC = 
   RCFLAGS = 
